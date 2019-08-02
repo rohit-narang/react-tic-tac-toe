@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import { Grid } from 'semantic-ui-react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+      board : Array(9).fill("X")
+    }
+  }
+
+  render() {
+    return (
+      <Grid columns={3} centered>
+        <Grid.Column centered>
+          <div className="App">
+          {this.state.board.map((box, index)=> {
+            return(
+              <div key={index} className="box">{box}</div>
+            )
+          })}
+          </div>
+        </Grid.Column>
+      </Grid>
+    );
+  }
 }
 
 export default App;
