@@ -1,14 +1,20 @@
 .App {
   align-content: center;
   text-align: center;
+  }
+
+.board{
+  margin: auto;
+  width:250px;
   display: flex;
   flex-wrap: wrap;
-  width: 250px;
-  }
+}
+
 .box {
   width: 80px;
   height: 80px;
   border: 1px solid #000;
   line-height: 90px;
+  display: inline-block;
 }
 
