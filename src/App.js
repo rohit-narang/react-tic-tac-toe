@@ -16,14 +16,16 @@ class App extends Component {
     event.preventDefault();
     if (!this.state.winner) {
       let newBoard = [...this.state.board];
+      if (newBoard[index] === null) {
       newBoard[index] = this.state.player;
-      this.setState({ board: newBoard, player: this.state.player === 'X' ? 'O' : 'X' }, () => { this.checkWinningCombination() });
+        this.setState({ board: newBoard, player: this.state.player === 'X' ? 'O' : 'X' }, () => { this.checkWinningCombination() });
+      }
     }
   }
 
   reset = (e) => {
     e.preventDefault();
-    this.setState({board: Array(9).fill(null), winner: null, player: 'X' })
+    this.setState({ board: Array(9).fill(null), winner: null, player: 'X' })
   }
 
   checkWinningCombination = () => {
@@ -50,6 +52,7 @@ class App extends Component {
 
   render() {
     return (
+
       <div className="App">
         <h1>TIC TAC TOE</h1>
         <div className="board">
@@ -58,9 +61,9 @@ class App extends Component {
               <div key={index} className="box" onClick={(event) => this.handleClick(event, index)}>{box}</div>
             )
           })}
-          
+
         </div>
-        <Button onClick={this.reset} style={{marginTop :'25px'}}> Start Again </Button>
+        <Button onClick={this.reset} style={{ marginTop: '25px' }}> Restart Game </Button>
       </div>
     );
   }

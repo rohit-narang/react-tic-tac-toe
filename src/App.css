@@ -1,20 +1,24 @@
 .App {
   align-content: center;
   text-align: center;
-  }
+  background-color: gray;  
+}
 
 .board{
   margin: auto;
   width:250px;
   display: flex;
   flex-wrap: wrap;
-}
+  }
 
 .box {
   width: 80px;
   height: 80px;
   border: 1px solid #000;
+  background-color: #14bdac;
   line-height: 90px;
   display: inline-block;
+  font-size: 25px;
+  font-weight: bold;
 }
 
